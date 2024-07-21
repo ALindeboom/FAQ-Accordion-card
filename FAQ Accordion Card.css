@@ -1,0 +1,290 @@
+/*
+# Front-end Style Guide
+## Colors
+### Primary
+#### Text
+
+- Very dark desaturated blue: hsl(238, 29%, 16%)
+- Soft red: hsl(14, 88%, 65%)
+
+#### Gradient
+Background gradient:
+
+- Soft violet: hsl(273, 75%, 66%)
+- Soft blue: hsl(240, 73%, 65%)
+
+### Neutral
+#### Text
+
+- Very dark grayish blue: hsl(237, 12%, 33%)
+- Dark grayish blue: hsl(240, 6%, 50%)
+
+#### Dividers
+- Light grayish blue: hsl(240, 5%, 91%)
+
+## Typography
+
+### Body Copy
+- Font size: 12px
+
+### Font
+- Family: [Kumbh Sans](https://fonts.google.com/specimen/Kumbh+Sans)
+- Weights: 400, 700
+
+## Aanvulling voor visie groep:
+In de desktop weergave wil de opdracht dat je een logo opbouwd uit meerdere lagen.
+Dit hoef je niet te doen! De opdracht draait om het accordeon menu.
+/*
+
+/* --------------------Basic-----------------------*/
+
+:root {
+    /* - Font size: 12px */
+    --font-KS: 'Kumbh Sans';
+    /*Primary text*/
+    --Very-dark-blue: hsl(238, 29%, 16%);               /*Very dark desaturated blue*/
+    --Soft-blue: hsl(240, 73%, 65%);
+    /*Background gradient*/
+    --Soft-violet: hsl(273, 75%, 66%);
+    --Soft-blue: hsl(240, 73%, 65%);                    
+    /*Neutral text*/
+    --Very-dark-blue: hsl(237, 12%, 33%);               /*Very dark grayish blue*/
+    --Dark-grayish-blue: hsl(240, 6%, 50%);
+    /*Dividers*/
+    --Light-grayish-blue: hsla(240, 5%, 91%, 0.8);
+}
+  
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+h1 {
+    font-family: var(--font-KS);
+    color: var(--Very-dark-blue);
+}
+
+p {
+    font-family: var(--font-KS);
+    font-size: 12px;
+    color: var(--Dark-grayish-blue);
+}
+
+.accordion {
+    background-color: white;
+    color: var(--Dark-grayish-blue);
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    transition: 0.4s;
+}
+
+hr {
+    color: var(--Light-grayish-blue);
+}
+
+/* --------------------Mobile 375px-------------------------*/
+@media only screen and (max-width: 1440px) {
+
+    .background-container {
+        width: 375px;
+        height: 765px;
+        margin-top: 140px;
+        background-color: hsl(273, 75%, 66%);
+        background-image: linear-gradient(hsl(273, 75%, 66%),hsl(240, 73%, 65%));
+    }
+
+    .container {
+        z-index: 1;
+        width: 325px;
+        height: 550px;
+        margin-top: 140px;
+        margin-left: 25px;
+        padding-top: 120px;
+        background-image: url('./images/bg-pattern-mobile.svg');
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-color: white;
+        border-radius: 30px;
+    }
+
+    .mob-img {
+        position: absolute;
+        z-index: 2;
+        height: 190px;
+        margin-top: -225px;
+        margin-left: 20px;      
+    }
+
+    .desk-img {
+        display: none;
+    }
+
+    .block {
+        display: none;
+    }
+   
+    h1 {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    p {
+        padding-left: 25px;
+        padding-right: 45px;
+    }
+
+    hr {
+        width: 275px;
+        height: 1px;
+        margin-left: 18px;
+    }
+
+    .accordion {
+        width: 300px;
+        padding: 16px;
+    }
+
+    .active, .accordion:hover {
+        color: black;
+        font-weight: 700;
+    }
+
+    .accordion:hover {
+        color: rgb(248, 82, 21);
+    }
+
+    .accordion:after {
+        content: url('./images/icon-arrow-down.svg'); 
+        font-size: 12px;
+        font-weight: bolder;
+        float: right;
+    }
+      
+    .active:after {
+        content: "\11205"; 
+    }
+    
+    .panel { 
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+    }
+
+}
+
+/* --------------------Desktop 1440px-----------------------*/
+@media only screen and (min-width: 1440px) {
+
+.background-container {
+    position: absolute;
+    z-index: 1;
+    width: 1450px;
+    height: 770px;
+    margin-top: 1100px;
+    background-color: hsl(273, 75%, 66%);
+    background-image: linear-gradient(hsl(273, 75%, 66%),hsl(240, 73%, 65%));
+}
+
+.container {
+    z-index: 2;
+    width: 1000px;
+    height: 500px;
+    margin-top: 120px;
+    margin-left: 225px;
+    background-image: url('./images/bg-pattern-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: -570px -270px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.mob-img {
+    display: none;
+}
+
+.desk-img {
+    position: absolute;
+    z-index: 3;
+    height: 360px;
+    margin-top: 80px;
+    margin-left: -80px;
+    clip: rect(auto auto auto 80px);
+}
+
+.block {
+    position: absolute;
+    z-index: 4;
+    margin-top: 215px;
+    margin-left: -94px;
+}
+
+h1 {
+    display: flex;    
+    flex-direction: row;
+    margin-left: 515px;
+    margin-bottom: 20px;
+    padding-top: 80px;
+}
+
+.a-container {
+    margin-left: 500px;
+}
+
+p {
+    padding-left: 20px;
+    padding-right: 40px;
+}
+
+hr {
+    width: 375px;
+    height: 1px;
+    margin-left: 18px;
+}
+
+.accordion {
+    width: 400px;
+    padding: 16px;
+}
+
+.active, .accordion:hover {
+    color: black;
+    font-weight: 700;
+}
+
+.accordion:hover {
+    color: rgb(248, 82, 21);
+}
+
+.accordion:after {
+    content: url('./images/icon-arrow-down.svg'); 
+    font-size: 12px;
+    font-weight: bolder;
+    float: right;
+}
+  
+.active:after {
+    content: "\11205"; 
+}
+
+.panel { 
+    width: 400px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+}
+
